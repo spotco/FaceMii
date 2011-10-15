@@ -1,0 +1,1 @@
+http://spotcos.com/friendmii/blank.html
