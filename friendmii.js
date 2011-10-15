@@ -1,3 +1,4 @@
+//FaceMii
 var personArray = [];
 var offScreenArray = [];
 var updateTimer;
@@ -5,7 +6,7 @@ var dragTimer;
 var mouseX = 0;
 var mouseY = 0;
 var teststring = '<span class="testclick"><img style="float:left; margin-right:5px;width:70px;height:70px;" src="ProfileIcon.png" /><h4 style="margin-top: 0px;">TestGuy</h4>Il vit dans toutes les eaux tempéréesou tropicales, où il flotte à la surface des eaux parmi le pleuston, face ventrale tournée vers la surface. Il se nourrit principalement d’hydrozoaires dont il tire son pouvoir urticant, y compris pour l’Homme, en conservant certains nématocystes. Il est hermaphrodite et des chapelets d’œufs sont pondus à la dérive ou fixés sur les cadavres des proies des adultes.</span>';
-
+var mousepause = false;
 var moveTarget;
 
 document.observe("dom:loaded", function() {
@@ -62,8 +63,42 @@ function facemiibar() {
 		clearInterval(updateTimer);
 	});
 	
-	bar.appendChild(close);
+	hide = $(document.createElement("a"));
+	hide.innerHTML = "hide";
+	hide.href = "#";
+	hide.style.color = "white";
+	hide.style.cssFloat = "right";
+	hide.style.marginTop = "3px";
+	hide.style.marginRight = "15px";
 	
+	hide.observe("click", hidePersonObj);
+	
+	
+	bar.appendChild(close);
+	bar.appendChild(hide);
+}
+
+var hide;
+var ishide = false;
+
+function hidePersonObj() {
+	if (hide.innerHTML == "hide") {
+		ishide = true;
+		for(var i = 0; i < $$(".personobject").length; i++) {
+			//$$(".personobject")[i].style.visibility = "hidden";
+			$$(".personobject")[i].hide();
+		}
+		hide.innerHTML = "show";
+		hide.observe("click", hidePersonObj);
+	} else {
+		ishide = false;
+		for(var i = 0; i < $$(".personobject").length; i++) {
+			//$$(".personobject")[i].style.visibility = "visible";
+			$$(".personobject")[i].show();
+		}
+		hide.innerHTML = "hide";
+		hide.observe("click", hidePersonObj);
+	}
 }
 		
 function startAnimations(persons) {
@@ -73,6 +108,12 @@ function startAnimations(persons) {
 		var newguy = new PersonObject(0,0,persons[i].nameOfPoster,persons[i].message,persons[i].gender,persons[i].picture,persons[i].link,persons[i].postTime);
 		newguy.update = guyupdate;
 		newguy.updateAnimation =  guyupdateanimate;
+		newguy.displayMessageBox.observe("mouseenter",function(){
+			mousepause = true;
+		});
+		newguy.displayMessageBox.observe("mouseleave",function(){
+			mousepause = false;
+		});
 		offScreenArray.push(newguy);
 		
 		/*personArray.push(newguy);
@@ -82,10 +123,13 @@ function startAnimations(persons) {
 	updateTimer = setInterval(update,40);
 }
 
+var zindexcount = 100;
 
 function mousedown(e) {
 	if (!moveTarget) {
 		moveTarget = findPersonInArray(this);
+		zindexcount++;
+		moveTarget.displayContainer.style.zIndex = zindexcount;
 		moveTarget.stopGravity = true;
 		dragTimer = setInterval(dragUpdate,20);
 		$$("html")[0].observe("mouseup",dragClear);
@@ -156,6 +200,9 @@ function findPersonInArray(target) {
 
 function update() {
 	if ((  (personArray.length < 6 && Math.floor(Math.random()*500) > 496) || personArray.length == 0) && offScreenArray.length > 0) {
+		if (ishide) {
+			return;
+		}
 		var addguy = offScreenArray.shift();
 		
 		if (Math.random()*2 > 1) {
@@ -175,6 +222,7 @@ function update() {
 			var stoGender = personArray[i].gender;
 			var stoDisplayMessageBox = personArray[i].displayMessageBox;
 			var stoDisplayDomObject = personArray[i].displayDomObject;
+			var stoNameTag = personArray[i].nameTag;
 			
 			var dc = personArray[i].displayContainer.remove();
 			var removedguy = personArray.splice(i,1);
@@ -185,6 +233,7 @@ function update() {
 			removedguy.displayMessageBox = stoDisplayMessageBox;
 			removedguy.setPosition = guysetposition;
 			removedguy.displayDomObject = stoDisplayDomObject;
+			removedguy.nameTag = stoNameTag;
 			removedguy.y = 0; removedguy.vy = -2;
 			removedguy.gender = stoGender;
 			
@@ -217,13 +266,18 @@ function PersonObject(x,y,name,message,gender,picture,link,time) {
 	this.displayContainer.style.position = "fixed";
 	this.displayContainer.style.whiteSpace = "nowrap";
 	this.displayContainer.style.width = "78px";
-	this.displayContainer.className="facemii";
+	this.displayContainer.className="facemii personobject";
 	this.displayContainer.style.zIndex = "100";
 	
-	/*
-	this.hitBox = $(document.createElement("div"));
-	this.hitBox.style.display = "inline-block";
-	this.hitBox.style.width = "77px";*/
+	this.nameTag = $(document.createElement("div"));
+	this.nameTag.innerHTML = name;
+	this.nameTag.className="facemii personobject";
+	this.nameTag.style.marginBottom = "-107px";
+	this.nameTag.style.marginLeft = "-7px";
+	this.nameTag.style.color = "#3B5998";
+	this.nameTag.style.fontWeight = "bold";
+	this.nameTag.style.fontFamily = "tahoma,verdana,arial,sans-serif";
+	this.displayContainer.appendChild(this.nameTag);
 	
 	this.displayDomObject = $(document.createElement("img"));
 	if (this.gender) {
@@ -334,7 +388,7 @@ function guyupdate() {
 		this.vy = -this.vy*0.5;
 	}
 	
-	if (Math.random()*1000 > 990 && this.y < 5 && this.initTime <= 0) {
+	if (Math.random()*1000 > 980 && this.y < 5 && this.initTime <= 0 && !mousepause) {
 		this.vx = Math.round(Math.random()*5) - 2;
 	}
 	
@@ -403,9 +457,15 @@ function guyupdateanimate() {
 	}
 	
 	if (this.showMessageBox) {
+		this.nameTag.style.visibility = "hidden";
 		this.displayMessageBox.style.visibility = "visible";
 	} else {
+		this.nameTag.style.visibility = "visible";
 		this.displayMessageBox.style.visibility = "hidden";
+	}
+	
+	if (this.stopGravity) {
+		this.nameTag.style.visibility = "hidden";
 	}
 }
 //end def PersonObject
