@@ -1,0 +1,74 @@
+[15-Oct-2011 06:32:04] CSRF state token does not match one provided.
+[15-Oct-2011 07:25:57] OAuthException
+[15-Oct-2011 07:25:57] (#803) Some of the aliases you requested do not exist: 1.0000005741E 14
+[15-Oct-2011 07:28:47] OAuthException
+[15-Oct-2011 07:28:47] (#803) Some of the aliases you requested do not exist: 1.0000005741E 14
+[15-Oct-2011 07:28:55] OAuthException
+[15-Oct-2011 07:28:55] (#803) Some of the aliases you requested do not exist: 1.0000005741E 14
+[15-Oct-2011 07:29:02] OAuthException
+[15-Oct-2011 07:29:02] (#803) Some of the aliases you requested do not exist: 1.0000005741E 14
+[15-Oct-2011 07:33:05] OAuthException
+[15-Oct-2011 07:33:05] (#803) Some of the aliases you requested do not exist: 1.0000005741E 14
+[15-Oct-2011 08:05:42] OAuthException
+[15-Oct-2011 08:05:42] Error validating access token: Session has expired at unix time 1318683600. The current unix time is 1318683943.
+[15-Oct-2011 10:20:49] PHP Parse error:  syntax error, unexpected T_BOOLEAN_AND, expecting ',' or ')' in /home/spotco/public_html/friendmii/grabstatus.php on line 5
+[15-Oct-2011 10:20:58] PHP Parse error:  syntax error, unexpected T_BOOLEAN_AND, expecting ',' or ')' in /home/spotco/public_html/friendmii/grabstatus.php on line 5
+[15-Oct-2011 10:21:20] PHP Parse error:  syntax error, unexpected T_BOOLEAN_AND, expecting ',' or ')' in /home/spotco/public_html/friendmii/grabstatus.php on line 5
+[15-Oct-2011 10:21:38] PHP Parse error:  syntax error, unexpected T_BOOLEAN_AND, expecting ',' or ')' in /home/spotco/public_html/friendmii/grabstatus.php on line 5
+[15-Oct-2011 10:23:03] PHP Parse error:  syntax error, unexpected T_BOOLEAN_AND, expecting ',' or ')' in /home/spotco/public_html/friendmii/grabstatus.php on line 5
+[15-Oct-2011 10:23:31] PHP Parse error:  syntax error, unexpected T_BOOLEAN_AND, expecting ',' or ')' in /home/spotco/public_html/friendmii/grabstatus.php on line 5
+[15-Oct-2011 10:36:48] Exception
+[15-Oct-2011 10:36:48] Unknown fields: gender
+[15-Oct-2011 10:37:13] Exception
+[15-Oct-2011 10:37:13] Unknown fields: gender
+[15-Oct-2011 10:38:16] Exception
+[15-Oct-2011 10:38:16] Unknown fields: gender
+[15-Oct-2011 10:38:32] Exception
+[15-Oct-2011 10:38:32] Unknown fields: gender
+[15-Oct-2011 10:41:34] OAuthException
+[15-Oct-2011 10:41:34] Error validating access token: The session is invalid because the user logged out.
+[15-Oct-2011 10:42:28] Exception
+[15-Oct-2011 10:42:28] Unknown fields: gender
+[15-Oct-2011 10:42:38] Exception
+[15-Oct-2011 10:42:38] Unknown fields: gender
+[15-Oct-2011 10:42:56] Exception
+[15-Oct-2011 10:42:56] Unknown fields: gender
+[15-Oct-2011 10:43:19] Exception
+[15-Oct-2011 10:43:19] Unknown fields: gender
+[15-Oct-2011 10:44:21] Exception
+[15-Oct-2011 10:44:21] Unknown fields: gender
+[15-Oct-2011 10:50:15] Exception
+[15-Oct-2011 10:50:15] Unknown fields: gender
+[15-Oct-2011 10:50:32] Exception
+[15-Oct-2011 10:50:32] Unknown fields: gender
+[15-Oct-2011 10:57:09] Exception
+[15-Oct-2011 10:57:09] Unknown fields: gender
+[15-Oct-2011 11:01:07] Exception
+[15-Oct-2011 11:01:07] Unknown fields: gender
+[15-Oct-2011 11:18:00] PHP Parse error:  syntax error, unexpected T_CATCH in /home/spotco/public_html/friendmii/grabstatus.php on line 39
+[15-Oct-2011 11:18:51] Exception
+[15-Oct-2011 11:18:51] Unknown fields: gender
+[15-Oct-2011 11:29:40] Exception
+[15-Oct-2011 11:29:40] Unknown fields: gender
+[15-Oct-2011 11:32:38] Exception
+[15-Oct-2011 11:32:38] Unknown fields: gender
+[15-Oct-2011 11:33:37] Exception
+[15-Oct-2011 11:33:37] Unknown fields: gender
+[15-Oct-2011 11:34:19] Exception
+[15-Oct-2011 11:34:19] Unknown fields: gender
+[15-Oct-2011 11:37:28] PHP Parse error:  syntax error, unexpected '{' in /home/spotco/public_html/friendmii/grabstatus.php on line 31
+[15-Oct-2011 11:37:54] PHP Fatal error:  Call to undefined function  isempty() in /home/spotco/public_html/friendmii/grabstatus.php on line 31
+[15-Oct-2011 11:39:38] PHP Fatal error:  Call to undefined function  isempty() in /home/spotco/public_html/friendmii/grabstatus.php on line 31
+[15-Oct-2011 12:02:25] OAuthException
+[15-Oct-2011 12:02:25] Error validating access token: Session has expired at unix time 1318698000. The current unix time is 1318698146.
+[15-Oct-2011 12:09:45] CurlException
+[15-Oct-2011 12:09:45] SSL read: error:00000000:lib(0):func(0):reason(0), errno 104
+[15-Oct-2011 14:36:33] PHP Warning:  file(sitedata.txt) [<a href='function.file'>function.file</a>]: failed to open stream: No such file or directory in /home/spotco/public_html/friendmii/index.php on line 8
+[15-Oct-2011 14:36:33] PHP Warning:  include(framework.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/spotco/public_html/friendmii/index.php on line 14
+[15-Oct-2011 14:36:33] PHP Warning:  include(framework.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/spotco/public_html/friendmii/index.php on line 14
+[15-Oct-2011 14:36:33] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'framework.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/spotco/public_html/friendmii/index.php on line 14
+[15-Oct-2011 14:36:33] PHP Fatal error:  Call to undefined function  makeheader() in /home/spotco/public_html/friendmii/index.php on line 16
+[15-Oct-2011 14:36:39] PHP Warning:  include(framework.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/spotco/public_html/friendmii/index.php on line 14
+[15-Oct-2011 14:36:39] PHP Warning:  include(framework.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/spotco/public_html/friendmii/index.php on line 14
+[15-Oct-2011 14:36:39] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'framework.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/spotco/public_html/friendmii/index.php on line 14
+[15-Oct-2011 14:36:39] PHP Fatal error:  Call to undefined function  makeheader() in /home/spotco/public_html/friendmii/index.php on line 16
